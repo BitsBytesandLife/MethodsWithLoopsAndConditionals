@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Reflection.Metadata.Ecma335;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace MethodsWithLoopsAndConditionals
 {
@@ -80,17 +81,78 @@ namespace MethodsWithLoopsAndConditionals
         }
 
         //Write a method to read the age of a candidate and determine whether they can vote. Hint: use Parse()... or the safer TryParse() for an extra challenge!!
-       static string AreYouOld(int age)
-        {
-
-            return (age > 18) ? "You are over 18" : "You are under 18";
-        }
-
         static string CanYouVote(int voterAge)
         {
-            return (voterAge >= 18) ? "You Can vote." : $"I'm sorry but you can't vote right now. You can vote in {18 - voterAge} years.";
+            return (voterAge >= 18) ? "You Can vote." : $"I'm sorry but you can't vote right now. You can register to vote in {18 - voterAge} years.";
         }
 
+        //Write a method to check if an integer(from the user) is in the range -10 to 10.
+        static string isNumberInRange(int numberCheck) 
+        {
+            return (numberCheck >= -10 && numberCheck <= 10) ? "Number is in range" : "Number is not in Range";
+        }
+
+        //Write a method to display the multiplication table(from 1 to 12) of a given integer.
+        static string MultiplicationTable(int number) 
+        {
+            var xTable = "Number is not in the range";
+
+            if (number >= 1 && number <= 12)
+            {
+                xTable = "";
+                for (int i = 1; i <= 12; i++)
+                {
+                    xTable = $"{number} x {i} = {number * i} \n" + xTable;
+                }
+            }
+
+            return xTable;        }
+
+
+        //Write a method that takes a number from the user and returns an array with that many indexes.The values shall be random numbers.
+        static Array RandomArr(int number) 
+        {
+            List<int> arr = new List<int>();
+            Random r = new Random();
+
+            for (int i = 0; i < number; i++)
+            {
+                arr.Add(r.Next(1,500));
+            }
+
+            return arr.ToArray();
+        }
+
+        static void ShowArray(Array randomList)
+        {
+            foreach (var item in randomList)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+
+        //Write a method to compute the sum of all the elements in an array of integers.
+        static int SumOfAnArray(Array sumOfAnArray)
+        {
+            var sum = 0;
+            //can't use var here I have to be explict?
+            foreach (int item in sumOfAnArray)
+            {
+                sum += item;
+            }
+
+            return sum;
+        }
+
+        //Write a method to display the cube of the number up to given an integer.    
+        //(If a user inputs the number 3 the method should print to the console: 
+        //Number is: 1 and the cube of 1 is:1, Number is: 2 and the cube of 2 is: 8, 
+        //Number is: 3 and the cube of 3 is:27)
+        static void CubeOfANumber(int number)
+        {
+            Console.WriteLine($"{number * number * number}");
+        }
 
         static void Main(string[] args)
         {
@@ -112,9 +174,32 @@ namespace MethodsWithLoopsAndConditionals
             //Write a method to check whether a given number is positive or negative.
             //Console.WriteLine(isPostiveNumber(number));
 
-            //
-            Console.WriteLine(CanYouVote(number));
+            //Write a method to read the age of a candidate and determine whether they can vote. Hint: use Parse()... or the safer TryParse() for an extra challenge!!
+            //Console.WriteLine(CanYouVote(number));
 
+            //Write a method to check if an integer(from the user) is in the range -10 to 10.
+            //Console.WriteLine(isNumberInRange(number));
+
+            //Write a method to display the multiplication table(from 1 to 12) of a given integer.
+            //I need breack room for this
+            //Console.WriteLine(MultiplicationTable(number));
+
+            //Write a method that takes a number from the user and returns an array with that many indexes.The values shall be random numbers.
+            //Array RandomNum = RandomArr(number);
+            //Console.WriteLine("Let's show the contents of this Random Array");
+            //ShowArray(RandomNum);
+
+            //Write a method to compute the sum of all the elements in an array of integers.
+            //Array sum = RandomArr(number);
+            //ShowArray(sum);
+            //Console.WriteLine($"{SumOfAnArray(sum)}");
+
+            //Write a method to display the cube of the number up to given an integer.    
+            //(If a user inputs the number 3 the method should print to the console: 
+            //Number is: 1 and the cube of 1 is:1, Number is: 2 and the cube of 2 is: 8, 
+            //Number is: 3 and the cube of 3 is:27)
+
+            //CubeOfANumber(number);
         }
     }
 
