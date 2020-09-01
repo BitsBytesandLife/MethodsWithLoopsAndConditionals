@@ -151,7 +151,11 @@ namespace MethodsWithLoopsAndConditionals
         //Number is: 3 and the cube of 3 is:27)
         static void CubeOfANumber(int number)
         {
-            Console.WriteLine($"{number * number * number}");
+
+            for (int i = 1; i < number; i++)
+            {
+                Console.WriteLine($"Number is {i} and the cube of {i} is: {i * i * i}");
+            }
         }
 
         static void Main(string[] args)
@@ -185,10 +189,10 @@ namespace MethodsWithLoopsAndConditionals
             //Console.WriteLine(MultiplicationTable(number));
 
             //Write a method that takes a number from the user and returns an array with that many indexes.The values shall be random numbers.
-            //Array RandomNum = RandomArr(number);
-            //Console.WriteLine("Let's show the contents of this Random Array");
-            //ShowArray(RandomNum);
-
+            Array RandomNum = RandomArr(number);
+            Console.WriteLine("Let's show the contents of this Random Array");
+            ShowArray(RandomNum);
+            
             //Write a method to compute the sum of all the elements in an array of integers.
             //Array sum = RandomArr(number);
             //ShowArray(sum);
@@ -199,7 +203,7 @@ namespace MethodsWithLoopsAndConditionals
             //Number is: 1 and the cube of 1 is:1, Number is: 2 and the cube of 2 is: 8, 
             //Number is: 3 and the cube of 3 is:27)
 
-            //CubeOfANumber(number);
+            CubeOfANumber(number);
         }
     }
 
